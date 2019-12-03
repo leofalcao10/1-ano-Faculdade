@@ -1,0 +1,1 @@
+Faça um programa que calcule a área de uma figura geométrica. Aceite 4 tipos de figura: Retangulo, Quadrado, Triângulo e Círculo.

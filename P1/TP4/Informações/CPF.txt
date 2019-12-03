@@ -1,0 +1,62 @@
+VALIDANDO CPF: Utilizaremos o meu CPF como exemplo: 466.088.898-36
+
+	OBS: Utilize a tabela Excel que está na pasta TP como auxílio ás formulas e caminhos.
+
+	Sites de apoio: https://www.geradorcpf.com/algoritmo_do_cpf.htm
+			https://tiagoporto.github.io/gerador-validador-cpf/
+			http://www.macoratti.net/alg_cpf.htm
+			http://www.macoratti.net/11/09/c_val1.htm
+
+	O algoritmo de validação do CPF calcula o primeiro dígito verificador a partir dos 9 primeiros dígitos do CPF, e em seguida, calcula o segundo dígito 			verificador a partir dos 9 (nove) primeiros dígitos do CPF, mais o primeiro dígito, obtido na primeira parte(ou seja, serão 10 dígitos utilizados para o cálculo 	do 2º verificador).
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CALCULANDO O 1º DÍGITO:
+
+	O primeiro passo é calcular o primeiro dígito verificador, e para isso, separamos os primeiros 9 dígitos do CPF (466.088.898) e multiplicamos cada um dos 			números, da direita para a esquerda por números crescentes a partir do número 2, como no exemplo abaixo:
+
+		9 Dígitos:	4	 6	 6	 0	 8	 8	 8	 9	 8
+
+		Fatorial:	10	 9	 8	 7	 6	 5	 4	 3	 2
+
+		Resultado:	40	 54	 48	 0	 48	 40	 32	 27	 16
+
+
+	Multiplicamos cada digito do CPF pelo respectivo número e somamos cada um dos resultados : 40+54+48+0+48+40+32+27+16 = 305
+
+	Pegamos o resultado obtido 305 e dividimos por 11.  Consideramos como quociente apenas o valor inteiro(ignoramos a parte decimal e usamos somente a parte int).
+
+		305 / 11  =   27  com resto 8
+
+		- Se o resto da divisão for menor que 2, então o dígito é igual a 0 (Zero).
+		- Se o resto da divisão for maior ou igual a 2, então o dígito verificador é igual a 11 menos o resto da divisão (11 - resto).
+
+		No nosso exemplo temos que o resto é 8 então faremos 11 - 8 = 3
+
+		Logo o primeiro dígito verificador é 3. Então podemos escrever o CPF com os dois dígitos calculados :  466.088.898-3X
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CALCULANDO O 2º DÍGITO:
+
+	Para  calcular o segundo dígito vamos usar o primeiro digito já calculado. Vamos montar a mesma tabela de multiplicação usada no cálculo do primeiro dígito. Só 		que desta vez usaremos na segunda linha os valores 11,10,9,8,7,6,5,4,3,2 já que estamos incluindo mais um digito no cálculo(o primeiro dígito calculado):
+
+		10 Dígitos:	4	6	6	0	8	8	8	9	8	3
+		
+		Fatorial:	11	10	9	8	7	6	5	4	3	2
+		
+		Resultado:	44	60	54	0	56	48	40	36	24	6
+
+
+	Novamente, efetuamos somamos o resultado da multiplicação : 44 + 60 + 54 + 0 + 56 + 48 + 40 + 36 + 24 + 6 = 368
+
+	Dividimos o total do somatório por 11 e consideramos o resto inteiro da divisão.
+
+		368 / 11  =  33  e  resto 5
+
+	Após obter o resto da divisão, precisamos aplicar a mesma regra que utilizamos para obter o primeiro dígito:
+
+		- Se o resto da divisão for menor que 2, então o dígito é igual a 0 (Zero).
+		- Se o resto da divisão for maior ou igual a 2, então o dígito é igual a 11 menos o resto da divisão (11 - resto).
+
+		11 - 5 = 6   logo 6 é o nosso segundo dígito verificador.
+
+		Logo o nosso CPF fictício será igual a : 466.088.898-36.

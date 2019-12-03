@@ -1,0 +1,3 @@
+Ano bisexto são anos múltimos de 4 e não múltiplos de 10. Portanto utiliza-se o módulo da divisão por 4 para validar o ano.
+
+Os exercícios do URI Judge estão em repositório e depois em parte 1 (Exercícios Simples).

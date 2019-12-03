@@ -1,0 +1,23 @@
+Uma variável do tipo Classe armazena endereços de memória de objetos que serão instanciados. É através desses endereços que linkaremos diferentes objetos na memória em forma de lista, similar á utilização de vetores porém sem array.
+
+this aponta para o objeto corrente que está utilizando o método. Objeto.Método();
+
+Mandar um argumento por referência manda seu endereço de memória e não somente seu valor. Assim, toda alteração feita nessa variável será salva ao retornar para o Main.
+
+ff aponta para um novo endereço de memória que será instanciado por um objeto. Será uma auxiliar para START, que aponta para o 1º Objeto da lista, e END para o último.
+
+O método .next pega o endereço/objeto seguinte com relação ao objeto que está utilizando o método. Cria-se uma conexão entre ambos.
+O anterior aponta para o sucessor: Cria-se uma lista de objetos, onde um conecta/aponta para o outro, sucessivamente, da esquerda para direita, sem necessidade de array.
+
+A navegação entre objetos indexados ocorre sempre da esquerda para direita.
+
+Ao criar variável do tipo Classe, a fim de aplicar a técnica de criação de objetos dinâmicos, os quais substituem o uso de array, cria-se um bloco com duas caixas: 
+a 1ª armazena de fato o valor desse objeto. A 2ª armazena o endereço de memória do seu objeto seguinte, para esta saber para onde se referênciar, tal como uma chave extrangeira, onde essa é a chave primária do próximo objeto e a utilizamos para conectar diferentes planilhas em um banco de dados. Esse fenômeno gera um encadeamento sequencial de objetos, tal como uma fila, onde temos objeto lado a lado se interligando um a um.
+
+info é a variável que recebe o valor que de fato armazenaremos na variável do tipo classe e a exibiremos. Já START e END serão utilizados com a única finalidade de movimentação e conexão entre os objetos de uma lista. Quando queremos percorrer uma lista com n objetos, movemos a posição do START até que este se encontre com END e o ultrapasse, encontrando o valor null(pois não há mais valores na lista após o END, pois este aponta para o último objeto).
+
+	Andando o START:
+
+		START = START.next;	START receberá sua posição atual + uma posição a frente. logo irá pular somente um objeto com relação a sua posição inicial.
+
+Técnica de objetos dinâmicos: Coloca objetos em ligação sem uso de array. É um substituto para o uso de vetores. Permite a otimização do espaço em memória pois quando utilizamos array precisamos sempre declarar a quantidade fixa de elementos do vetor. Assim, muitas vezes o espaço na memória é perdido pois nem sempre utiliza-se todas as posições do vetor. Já com essa técnica não é necessário declarar a quantidade de "vetores" previamente, é dinâmico, otimizando o espaço pois posso criar quantos objetos eu quiser sem a necessidade ocupar/declarar espaço prévio. Cria-se então objetos encadeados e não mais elementos de um vetor com número de posições fixa.
